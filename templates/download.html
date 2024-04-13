@@ -1,0 +1,19 @@
+<!-- templates/download.html -->
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Download Options</title>
+</head>
+<body>
+    <h1>Choose Download Option</h1>
+    <form method="post" action="/download_video">
+        <input type="hidden" name="video_link" value="{{ streams[0].url }}">
+        {% for stream in streams %}
+        <p>
+            <input type="radio" name="selected_stream" value="{{ stream.itag }}"> {{ stream.resolution }} - {{ stream.mime_type }}
+        </p>
+        {% endfor %}
+        <button type="submit">Download</button>
+    </form>
+</body>
+</html>
